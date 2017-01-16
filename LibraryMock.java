@@ -1,4 +1,7 @@
 public class LibraryMock implements Library {
+	public int getId(String username) {
+		return 1;
+	}
 	public String getName() {
 		return "Mock Library";
 	}
