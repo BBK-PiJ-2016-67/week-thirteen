@@ -31,4 +31,15 @@ public class LibraryTest {
 		int id2 = library.getId("bob");
 		assertEquals(id2, 2);
 	}
+	@Test
+	public void manageBooks() {
+		library.addBook("Harry Potter", "J. K. Rowling");
+		Book book1 = library.takeBook("Harry Potter");
+		assertEquals(book1.getTitle(), "Harry Potter");
+		Book book2 = library.takeBook("Harry Potter");
+		assertEquals(book2, null);
+		library.returnBook(book1);
+		Book book3 = library.takeBook("Harry Potter");
+		assertEquals(book3.getTitle(), "Harry Potter");
+	}
 }
