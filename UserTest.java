@@ -2,12 +2,15 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class UserTest {
+	private Library library;
+	@Before
+	public void librarySetUp() {
+		library = new LibraryMock();
+	}
 	@Test
-	public void constructor() {
-		User user1 = new User("lucas");
-		int id1 = user1.getID();
-		User user2 = new User("bob");
-		int id2 = user2.getID();
-		assertNotEquals(id1, id2);
+	public void newUserCanRegisterToLibrary() {
+		User user = new User("lucas");
+		user.register(library);
+
 	}
 }
